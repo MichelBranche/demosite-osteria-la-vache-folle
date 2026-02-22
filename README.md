@@ -1,10 +1,3 @@
-Perfetto.
-Ora entriamo in modalità “portfolio serio GitHub-ready”.
-
-Ti scrivo un README pulito, professionale, senza fronzoli inutili, coerente con le slide che hai creato.
-
-Puoi copiarlo direttamente dentro README.md.
-
 🐄 Osteria La Vache Folle – One Page Experience
 📌 Project Overview
 
