@@ -1,122 +1,116 @@
-#🐄 Osteria La Vache Folle – One Page Experience
+<p align="center">
+  <img src="./assets/mockup-1.png" width="100%" />
+</p>
 
-##📌 Project Overview
+<h1 align="center">🐄 Osteria La Vache Folle</h1>
+<p align="center"><i>Atmosfera di casa. Carattere di montagna.</i></p>
 
-![Mockup Desktop & Mobile](./assets/mockup-1.png)
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-Semantic-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-Responsive-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+</p>
 
+---
 
+## 📌 Project Overview
 
-“Osteria La Vache Folle” è una one-page demo progettata per trasformare l’identità di un ristorante di montagna in un’esperienza digitale immersiva, moderna e responsive.
+“Osteria La Vache Folle” è una **one-page demo experience** progettata per trasformare l’identità di un’osteria di montagna in un’interfaccia digitale immersiva, moderna e performante.
 
-L’obiettivo era creare un sito capace di trasmettere:
+L’obiettivo non era solo “fare un sito”, ma costruire:
 
-Atmosfera calda e autentica
+- Un’atmosfera coerente con il territorio
+- Un’esperienza fluida e intuitiva
+- Un layout scalabile e pronto per evoluzioni future
+- Micro-dettagli che elevano la percezione del brand
 
-Carattere territoriale
+---
 
-Navigazione semplice e intuitiva
+## 🎯 Concept
 
-Cura dei micro-dettagli
+Creare un sito capace di trasmettere il calore e l’autenticità del territorio montano, pur rimanendo moderno e ottimizzato per il web contemporaneo.
 
-Il progetto unisce estetica alpina e funzionalità web moderna.
+Ho progettato un’interfaccia:
 
+- Palette beige e naturali
+- Immagini immersive
+- Micro-interazioni leggere
+- Cura maniacale degli stati hover e delle transizioni
 
+<p align="center">
+  <img src="./assets/concept-slide.png" width="900" />
+</p>
 
-##🎯 Concept
+---
 
-![Concept Slide](./assets/concept-slide.png)
+## 🧱 Tech Stack
 
+### HTML5
+Struttura semantica, sezioni organizzate, accessibilità base (skip link, aria-label).
 
-
-Creare un sito per un’osteria che trasmetta il calore e l’autenticità del territorio montano, pur essendo moderno e ottimizzato per il web di oggi.
-
-La soluzione è stata progettare un’interfaccia:
-
-Dalle palette beige e naturali
-
-Con immagini immersive
-
-Arricchita da micro-interazioni leggere
-
-Ottimizzata per desktop e mobile
-
-##🖥️ Preview
-Desktop & Mobile Mockup
-
-Atmosfera di casa. Carattere di montagna.
-
-
-
-##🧱 Tech Stack
-
-
-![Tech Stack](./assets/tech-stack.png)
-
-
-HTML5
-
-Struttura semantica, sezioni chiare, accessibilità base (skip link, aria-label).
-
-CSS3
-
+### CSS3
 Layout responsive con Flexbox e Grid, card UI, animazioni soft, overlay e micro-dettagli premium.
 
-JavaScript (Vanilla)
+### JavaScript (Vanilla)
+- Preloader
+- Lightbox gallery
+- Animazioni on-scroll
+- Audio hover “Muu”
+- Back-to-top button
 
-Preloader
+<p align="center">
+  <img src="./assets/tech-stack.png" width="900" />
+</p>
 
-Lightbox gallery
+---
 
-Animazioni on-scroll
+## ✨ Feature Highlights
 
-Audio hover “Muu”
+✔ Responsive Design  
+Layout adattivo per una navigazione semplice sia su desktop che su mobile.
 
-Back-to-top button
-
-
-
-##✨ Feature Highlights
-
-✔ Responsive Design
-Layout adattivo per desktop e mobile.
-
-✔ Micro-interactions
+✔ Micro-interactions  
 Tooltip audio “Muu”, hover states, transizioni morbide.
 
-✔ Performance
+✔ Performance  
 Immagini ottimizzate (WebP), lazy loading.
 
-✔ Accessibilità
-Supporto a prefers-reduced-motion per ridurre le animazioni.
+✔ Accessibility  
+Supporto a `prefers-reduced-motion` per ridurre le animazioni.
 
-✔ SEO Ready
+✔ SEO Ready  
 Meta Open Graph (OG) + Twitter Card.
 
-📈 Impact & Outcome
+---
 
-Il sito è stato progettato per offrire:
+## 📈 Impact & Outcome
 
-Navigazione chiara e intuitiva
+- Navigazione chiara e intuitiva  
+- Esperienza immersiva coerente col brand  
+- Struttura pronta per estensione (menu online, prenotazioni, ecc.)  
+- Base solida per evoluzione futura del prodotto  
 
-Esperienza immersiva coerente col brand
+---
 
-Layout scalabile
+## 👤 Credits
 
-Struttura pronta per future estensioni (menu online, prenotazioni, ecc.)
+**Design & Development**  
+Michel Branche  
 
+Frontend Developer & UI Designer  
 
+📍 Valle d’Aosta, Italy  
+🔗 Portfolio: https://michelbranche.github.io/portfolio  
+📧 michel.lavoro@gmail.com  
 
-##🚀 Why This Project Matters
+---
 
-Questo progetto dimostra:
+## 🚀 About This Project
 
-Cura del dettaglio UI
+Questo progetto è una demo portfolio orientata a dimostrare:
 
-Pensiero progettuale (non solo codice)
+- Pensiero progettuale
+- Cura dell’esperienza utente
+- Integrazione tra design e performance
+- Attenzione ai micro-dettagli
 
-Attenzione all’esperienza utente
-
-Integrazione tra design e performance
-
-Non è solo una demo grafica.
-È un case study di trasformazione digitale.
