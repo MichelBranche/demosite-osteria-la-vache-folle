@@ -275,6 +275,24 @@
           <h2>Orari e contatti</h2>
 
           <div class="info__cards">
+            <div class="infoCard infoCard--orari">
+                  <h3>Orari di apertura</h3>
+                  <p class="open-status" id="openStatus" aria-live="polite">
+                     <span class="open-dot" aria-hidden="true"></span>
+                     <span class="open-text">Verifico orario…</span>
+                 </p>
+                     <ul class="orari">
+                     <li><span>Domenica</span><span>12–14:30 · 19–22</span></li>
+                     <li><span>Lunedì</span><span>12–14:30 · 19–22</span></li>
+                     <li><span>Martedì</span><span>12–14:30 · 19–22</span></li>
+                     <li><span>Mercoledì</span><span>12–14:30 · 19–22</span></li>
+                     <li><span>Giovedì</span><span>12–14:30 · 19–22</span></li>
+                     <li><span>Venerdì</span><span>12–14:30 · 19–22</span></li>
+                     <li><span>Sabato</span><span>12–14:30 · 19–22</span></li>
+                  </ul>
+               <p class="muted small">Ultimo aggiornamento: da verificare con l’attività.</p>
+            </div>
+
             <div class="infoCard">
               <h3>Indirizzo</h3>
               <p>Piazza Cavalieri di Vittorio Veneto, 14<br/>Aosta (AO)</p>
@@ -409,9 +427,9 @@
     ];
 
     const placements = [
-      { x: 10, y: 0,   w: 360, delay: 0,   anchor: "bottom" }, // cow-1
-      { x: 23, y: 18,  w: 280, delay: 220, anchor: "bottom" }, // cow-2
-      { x: 80, y: 0,   w: 500, delay: 440, anchor: "bottom" }, // cow-3
+      { x: 6, y: 0,   w: 360, delay: 0,   anchor: "bottom" }, // cow-1
+      { x: 16, y: 18,  w: 280, delay: 220, anchor: "bottom" }, // cow-2
+      { x: 86, y: 0,   w: 500, delay: 440, anchor: "bottom" }, // cow-3
       { x: 94, y: 110, w: 320, delay: 660, anchor: "top" },    // cow-4
     ];
 
@@ -592,6 +610,94 @@
     brand.addEventListener("focusout", hide);
   })();
 
+})();
+
+(function(){
+  const giorni = [
+    "Domenica",
+    "Lunedì",
+    "Martedì",
+    "Mercoledì",
+    "Giovedì",
+    "Venerdì",
+    "Sabato"
+  ];
+
+  const oggi = new Date().getDay();
+  const nomeOggi = giorni[oggi];
+
+  document.querySelectorAll(".orari li").forEach(li=>{
+    if(li.textContent.includes(nomeOggi)){
+      li.style.background = "rgba(0,0,0,0.05)";
+      li.style.borderRadius = "8px";
+      li.style.paddingLeft = "6px";
+      li.style.paddingRight = "6px";
+    }
+  });
+})();
+(function(){
+  // Orari: due fasce al giorno (in minuti da mezzanotte)
+  // 12:00-14:30 e 19:00-22:00
+  const intervals = [
+    { start: 12*60, end: 14*60 + 30 },
+    { start: 19*60, end: 22*60 }
+  ];
+
+  const giorni = ["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];
+
+  // Ora locale del dispositivo (ok per Italia se l'utente è in Italia)
+  // Nota: se qualcuno lo apre dall'estero, userà l'ora locale. Per ora va benissimo.
+  const now = new Date();
+  const dayIndex = now.getDay();
+  const nomeOggi = giorni[dayIndex];
+
+  const minutesNow = now.getHours() * 60 + now.getMinutes();
+
+  // evidenzia oggi nella lista
+  document.querySelectorAll(".orari li").forEach(li => {
+    const dayLabel = li.querySelector("span:first-child")?.textContent?.trim();
+    if (dayLabel === nomeOggi) li.classList.add("is-today");
+  });
+
+  // calcola se aperto
+  const isOpen = intervals.some(({start,end}) => minutesNow >= start && minutesNow < end);
+
+  // calcola prossima apertura/chiusura per messaggio più utile
+  function fmt(min){
+    const h = String(Math.floor(min/60)).padStart(2,"0");
+    const m = String(min%60).padStart(2,"0");
+    return `${h}:${m}`;
+  }
+
+  let nextText = "";
+  if (isOpen) {
+    // trova fine fascia corrente
+    const current = intervals.find(({start,end}) => minutesNow >= start && minutesNow < end);
+    nextText = current ? `Chiude alle ${fmt(current.end)}` : "";
+  } else {
+    // trova prossima apertura oggi
+    const upcoming = intervals.find(({start}) => minutesNow < start);
+    if (upcoming) {
+      nextText = `Apre alle ${fmt(upcoming.start)}`;
+    } else {
+      // dopo l'ultima fascia: prossima apertura domani alle 12:00
+      nextText = `Apre domani alle ${fmt(intervals[0].start)}`;
+    }
+  }
+
+  const status = document.getElementById("openStatus");
+  if (!status) return;
+
+  const textEl = status.querySelector(".open-text");
+  status.classList.remove("is-open","is-closed");
+
+  if (isOpen) {
+    status.classList.add("is-open");
+    if (textEl) textEl.textContent = `Aperto ora. ${nextText}`;
+  } else {
+    status.classList.add("is-closed");
+    if (textEl) textEl.textContent = `Chiuso ora. ${nextText}`;
+  }
 })();
 </script>
 
