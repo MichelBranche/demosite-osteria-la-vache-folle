@@ -1,6 +1,8 @@
 🐄 Osteria La Vache Folle – One Page Experience
 📌 Project Overview
 
+![Mockup Desktop & Mobile](./assets/mockup-1.png)
+
 “Osteria La Vache Folle” è una one-page demo progettata per trasformare l’identità di un ristorante di montagna in un’esperienza digitale immersiva, moderna e responsive.
 
 L’obiettivo era creare un sito capace di trasmettere:
@@ -16,6 +18,10 @@ Cura dei micro-dettagli
 Il progetto unisce estetica alpina e funzionalità web moderna.
 
 🎯 Concept
+
+![Concept Slide](./assets/concept-slide.png)
+
+
 
 Creare un sito per un’osteria che trasmetta il calore e l’autenticità del territorio montano, pur essendo moderno e ottimizzato per il web di oggi.
 
@@ -35,6 +41,11 @@ Desktop & Mobile Mockup
 Atmosfera di casa. Carattere di montagna.
 
 🧱 Tech Stack
+
+
+![Tech Stack](./assets/tech-stack.png)
+
+
 HTML5
 
 Struttura semantica, sezioni chiare, accessibilità base (skip link, aria-label).
