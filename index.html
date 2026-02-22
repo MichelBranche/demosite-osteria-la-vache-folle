@@ -13,15 +13,16 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Osteria La Vache Folle | Aosta" />
   <meta name="twitter:description" content="Cucina valdostana, casalinga e di territorio. Contatti, orari, foto e indicazioni." />
-  <meta name="twitter:image" content="assets/img/unnamed (1).webp" />
-
-  <link rel="preload" href="assets/img/unnamed (1).webp" as="image" />
+  <meta name="twitter:image" content="assets/img/hero/hero-1.webp" />
   <link rel="stylesheet" href="styles.css" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Osteria La Vache Folle | Aosta" />
   <meta property="og:description" content="Cucina valdostana, casalinga e di territorio. Contatti, orari, foto e indicazioni." />
-  <meta property="og:image" content="assets/img/unnamed (1).webp" />
+  <meta property="og:image" content="assets/img/hero/hero-1.webp" />
+  <link rel="preload" href="assets/img/hero/hero-1.webp" as="image">
+  <link rel="preload" href="assets/img/hero/hero-2.webp" as="image">
+  <link rel="preload" href="assets/img/hero/hero-3.webp" as="image">
 </head>
 
 <body>
@@ -129,7 +130,10 @@
 
   <main id="contenuto">
     <section id="home" class="hero" aria-label="Presentazione">
-      <div class="hero__bg" role="img" aria-label="Interno dell'osteria"></div>
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__bg-layer is-a"></div>
+        <div class="hero__bg-layer is-b"></div>
+     </div>
       <div class="wrap hero__content">
         <p class="kicker">Aosta, Valle d’Aosta</p>
         <h1>Tradizione valdostana, sapori veri.</h1>
@@ -246,27 +250,48 @@
           <p class="muted">Uno sguardo veloce a piatti e atmosfera.</p>
         </div>
 
-        <div class="gallery" aria-label="Galleria immagini">
+        
+        <h3 class="gallery-title">Atmosfera</h3>
+        <div class="gallery" aria-label="Galleria atmosfera">
           <figure class="gallery__item">
-            <img src="assets/img/unnamed (1).webp" alt="Interno del locale" loading="lazy" />
+            <img src="assets/img/gallery/house-1.webp" alt="Interno del locale" loading="lazy" />
           </figure>
           <figure class="gallery__item">
-            <img src="assets/img/unnamed (5).webp" alt="Dettagli del locale con oggetti appesi" loading="lazy" />
+            <img src="assets/img/gallery/house-2.webp" alt="Dettaglio del bancone" loading="lazy" />
           </figure>
           <figure class="gallery__item">
-            <img src="assets/img/unnamed (6).webp" alt="Dettagli del locale e decorazioni" loading="lazy" />
+            <img src="assets/img/gallery/house-3.webp" alt="Dettagli dell'ambiente" loading="lazy" />
           </figure>
           <figure class="gallery__item">
-            <img src="assets/img/unnamed (7).webp" alt="Insegna La Vache Folle su botte" loading="lazy" />
+            <img src="assets/img/gallery/house-4.webp" alt="Angolo del locale" loading="lazy" />
           </figure>
           <figure class="gallery__item">
-            <img src="assets/img/unnamed (3).webp" alt="Fonduta e tagliere" loading="lazy" />
+            <img src="assets/img/gallery/house-5.webp" alt="Dettagli in legno e rame" loading="lazy" />
           </figure>
           <figure class="gallery__item">
-            <img src="assets/img/unnamed (4).webp" alt="Piatto caldo con polenta" loading="lazy" />
+            <img src="assets/img/gallery/house-6.webp" alt="Atmosfera dell'osteria" loading="lazy" />
           </figure>
         </div>
-      </div>
+
+        <h3 class="gallery-title">Piatti</h3>
+        <div class="gallery" aria-label="Galleria piatti">
+          <figure class="gallery__item">
+            <img src="assets/img/gallery/food-1.webp" alt="Piatto della tradizione" loading="lazy" />
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/gallery/food-2.webp" alt="Fonduta e specialità" loading="lazy" />
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/gallery/food-3.webp" alt="Tagliere valdostano" loading="lazy" />
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/gallery/food-4.webp" alt="Piatto caldo di montagna" loading="lazy" />
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/gallery/food-5.webp" alt="Dolce o fine pasto" loading="lazy" />
+          </figure>
+        </div>
+</div>
     </section>
 
     <section id="info" class="section section--alt">
@@ -698,6 +723,48 @@
     status.classList.add("is-closed");
     if (textEl) textEl.textContent = `Chiuso ora. ${nextText}`;
   }
+})();
+(function(){
+  const heroBg = document.querySelector(".hero__bg");
+  if(!heroBg) return;
+
+  const a = heroBg.querySelector(".hero__bg-layer.is-a");
+  const b = heroBg.querySelector(".hero__bg-layer.is-b");
+  if(!a || !b) return;
+
+  const images = [
+    "assets/img/hero/hero-1.webp",
+    "assets/img/hero/hero-2.webp",
+    "assets/img/hero/hero-3.webp"
+  ];
+
+  // prefers-reduced-motion: immagine fissa
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    a.style.backgroundImage = `url(${images[0]})`;
+    a.classList.add("is-show");
+    return;
+  }
+
+  let idx = 0;
+  let showingA = true;
+
+  function showNext(){
+    idx = (idx + 1) % images.length;
+    const next = showingA ? b : a;
+    const current = showingA ? a : b;
+
+    next.style.backgroundImage = `url(${images[idx]})`;
+    next.classList.add("is-show");
+    current.classList.remove("is-show");
+
+    showingA = !showingA;
+  }
+
+  // init
+  a.style.backgroundImage = `url(${images[0]})`;
+  a.classList.add("is-show");
+
+  setInterval(showNext, 8000);
 })();
 </script>
 

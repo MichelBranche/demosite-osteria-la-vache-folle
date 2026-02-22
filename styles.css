@@ -127,17 +127,31 @@ body.is-loading{
 .btn:focus{ outline: 3px solid var(--ring); outline-offset: 3px; }
 
 .btn--ghost{
-  background: transparent;
-  color: var(--ink);
-  box-shadow: none;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  color: rgba(106,43,45,.95);
+  border: 3px solid rgba(106,43,45,.95);
+}
+
+
+/* HERO: rendi il bottone ghost sempre leggibile sullo sfondo in movimento */
+.hero .btn--ghost{
+  background: rgba(20,17,15,0.32);
+  border: 1px solid rgba(255,255,255,0.75);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  text-shadow: 0 2px 14px rgba(0,0,0,0.55);
+}
+.hero .btn--ghost:hover{
+  background: rgba(20,17,15,0.42);
 }
 .btn--ghost:hover{
-  background: rgba(29,23,18,.06);
+  background: rgba(255,255,255,0.25);
 }
 
 .btn--lg{
   padding: 12px 18px;
   font-size: 1.02rem;
+  color: #ffffff;
 }
 
 /* Hero */
@@ -153,16 +167,12 @@ body.is-loading{
 .hero__bg{
   position:absolute;
   inset:0;
-  background-image:
-    linear-gradient(180deg, rgba(20,17,15,.72), rgba(20,17,15,.84)),
-    url("assets/img/unnamed (1).webp");
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.02);
+  overflow:hidden;
 }
 .hero__content{
   position: relative;
   padding: 78px 0 56px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.5);
 }
 .kicker{
   display:inline-block;
@@ -1083,4 +1093,46 @@ img{
   #info .grid2{
     grid-template-columns: 1fr;
   }
+}
+.hero{
+  position: relative;
+}
+
+.hero__bg{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero__bg-layer{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1200ms ease, transform 8s ease;
+}
+
+.hero__bg-layer.is-show{
+  opacity: 1;
+  transform: scale(1.09);
+}
+.hero__bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient(
+    80% 70% at 40% 30%,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.65)
+  );
+}
+.gallery-title{
+  margin: 40px 0 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #3b2b22;
 }
