@@ -1,60 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260">
-  <rect width="420" height="260" rx="40" fill="#fbf3e7"/>
-  <g transform="translate(0,0) scale(1)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#f3e6d7"></rect>
   
-      <!-- sfondo trasparente -->
-            <!-- testa -->
-            <g class="cow-head">
-              <path d="M140 75 C140 35 180 15 210 15 C240 15 280 35 280 75 C280 120 255 150 210 150 C165 150 140 120 140 75Z"
-                    fill="#f6f0e6" stroke="#3b2b22" stroke-width="6" stroke-linejoin="round"/>
-
-              <!-- macchie -->
-              <path d="M175 55 C165 40 190 32 205 45 C220 58 205 75 190 70 C182 68 180 62 175 55Z"
-                    fill="#3b2b22" opacity="0.9"/>
-              <path d="M235 85 C225 70 255 60 268 78 C280 95 260 112 245 105 C240 103 239 97 235 85Z"
-                    fill="#3b2b22" opacity="0.9"/>
-
-              <!-- corna -->
-              <path d="M155 70 C130 55 128 30 150 28 C170 28 176 52 170 70Z"
-                    fill="#d9c8a6" stroke="#3b2b22" stroke-width="6" stroke-linejoin="round"/>
-              <path d="M265 70 C290 55 292 30 270 28 C250 28 244 52 250 70Z"
-                    fill="#d9c8a6" stroke="#3b2b22" stroke-width="6" stroke-linejoin="round"/>
-
-              <!-- orecchie -->
-              <path d="M128 92 C100 85 92 62 112 58 C130 55 142 72 140 92Z"
-                    fill="#f6f0e6" stroke="#3b2b22" stroke-width="6" stroke-linejoin="round"/>
-              <path d="M292 92 C320 85 328 62 308 58 C290 55 278 72 280 92Z"
-                    fill="#f6f0e6" stroke="#3b2b22" stroke-width="6" stroke-linejoin="round"/>
-
-              <!-- occhi (bianco) -->
-              <g class="eyes">
-                <ellipse class="eye-white" cx="185" cy="85" rx="35" ry="28" fill="#fff" stroke="#3b2b22" stroke-width="6"/>
-                <ellipse class="eye-white" cx="235" cy="85" rx="35" ry="28" fill="#fff" stroke="#3b2b22" stroke-width="6"/>
-
-                <!-- palpebre (per blink) -->
-                <path class="lid lid-left" d="M150 85 C160 65 210 65 220 85" fill="none" stroke="#3b2b22" stroke-width="10" stroke-linecap="round"/>
-                <path class="lid lid-right" d="M200 85 C210 65 260 65 270 85" fill="none" stroke="#3b2b22" stroke-width="10" stroke-linecap="round"/>
-
-                <!-- pupille -->
-                <circle class="pupil pupil-left" cx="190" cy="90" r="10" fill="#111"/>
-                <circle class="pupil pupil-right" cx="240" cy="90" r="10" fill="#111"/>
-
-                <!-- highlight -->
-                <circle class="shine" cx="194" cy="86" r="3.5" fill="#fff"/>
-                <circle class="shine" cx="244" cy="86" r="3.5" fill="#fff"/>
-              </g>
-
-              <!-- muso -->
-              <path d="M170 120 C175 155 245 155 250 120 C255 105 245 95 210 95 C175 95 165 105 170 120Z"
-                    fill="#f0c7b3" stroke="#3b2b22" stroke-width="6" stroke-linejoin="round"/>
-
-              <!-- narici -->
-              <ellipse cx="195" cy="125" rx="8" ry="12" fill="#3b2b22" opacity="0.75"/>
-              <ellipse cx="225" cy="125" rx="8" ry="12" fill="#3b2b22" opacity="0.75"/>
-
-              <!-- bocca -->
-              <path d="M200 145 C210 152 220 145 230 145" fill="none" stroke="#3b2b22" stroke-width="6" stroke-linecap="round"/>
-            </g>
-    
-  </g>
+  <!-- testa -->
+  <ellipse cx="32" cy="34" rx="18" ry="16" fill="#ffffff" stroke="#a46640" stroke-width="3"></ellipse>
+  
+  <!-- corna -->
+  <path d="M18 24 Q14 16 22 16" fill="none" stroke="#a46640" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M46 24 Q50 16 42 16" fill="none" stroke="#a46640" stroke-width="3" stroke-linecap="round"></path>
+  
+  <!-- occhi -->
+  <circle cx="26" cy="32" r="2.8" fill="#a46640"></circle>
+  <circle cx="38" cy="32" r="2.8" fill="#a46640"></circle>
+  
+  <!-- muso -->
+  <ellipse cx="32" cy="42" rx="8" ry="5" fill="#f0c7b3"></ellipse>
+  <circle cx="29" cy="42" r="1.5" fill="#a46640"></circle>
+  <circle cx="35" cy="42" r="1.5" fill="#a46640"></circle>
 </svg>
